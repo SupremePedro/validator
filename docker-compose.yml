@@ -1,0 +1,19 @@
+version: '3'
+
+networks:
+  net-db:
+
+services:
+  PostgreSQLAdmin:
+    container_name: main_db
+    restart: always
+    image: postgres:11.6-alpine
+    networks:
+    - net-db
+    ports:
+    - "25432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: dbmsys_admin
+
